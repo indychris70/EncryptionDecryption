@@ -1,18 +1,19 @@
 package encryptdecrypt;
 
 public class Input {
+    private final Operation operation;
+    private final String key;
     private String text;
-    private Operation operation;
-    private String key;
+    private final String source;
+    private final String destination;
 
-    Input(Operation operation, String text, String key) {
+
+    Input(Operation operation, String text, String key, String inputFileName, String outputFileName) {
         this.operation = operation;
-        this.text = text;
         this.key = key;
-    }
-
-    public String getText() {
-        return text;
+        this.text = text;
+        this.source = getSource(inputFileName);
+        this.destination = getDestination(outputFileName);
     }
 
     public Operation getOperation() {
@@ -21,5 +22,37 @@ public class Input {
 
     public int getKeyInt() {
         return Integer.parseInt(key);
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    private String getSource(String inputFileName) {
+        if (!inputFileName.isEmpty() && text.isEmpty()) {
+            return inputFileName;
+        } else {
+            return "text";
+        }
+    }
+
+    private String getDestination(String outputFileName) {
+        if (outputFileName.isEmpty()) {
+            return "standard out";
+        } else {
+            return outputFileName;
+        }
     }
 }
