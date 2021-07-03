@@ -2,7 +2,8 @@ package encryptdecrypt;
 
 public enum UnicodeCharacterSets {
     BASIC_LATIN(32, 126),
-    LOWER_CASE_LATIN(97, 122);
+    LOWER_CASE_LATIN(97, 122),
+    UPPER_CASE_LATIN(65, 90);
 
     private int minDecValue;
     private int maxDecValue;
@@ -18,5 +19,9 @@ public enum UnicodeCharacterSets {
 
     public int getMinDecValue() {
         return minDecValue;
+    }
+
+    public boolean inSet(char character) {
+        return character >= minDecValue && character <= maxDecValue;
     }
 }

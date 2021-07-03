@@ -49,6 +49,9 @@ Get the input from command line arguments instead of via standard input.
 ### Stage #5
 Add the ability to read from and write to files. 
 
+### Stage #6
+Add the ability to select between different algorithms.
+
 ## Stages
 ### Stage #1: Encrypted!
 Link: https://hyperskill.org/projects/46/stages/245/implement
@@ -64,3 +67,6 @@ Link: https://hyperskill.org/projects/46/stages/248/implement
 
 ### Stage #5: X-files
 Link: https://hyperskill.org/projects/46/stages/249/implement
+
+### Stage #6: Choices, choices
+Link: https://hyperskill.org/projects/46/stages/250/implement

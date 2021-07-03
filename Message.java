@@ -1,19 +1,23 @@
 package encryptdecrypt;
 
-public class Input {
+public class Message {
     private final Operation operation;
     private final String key;
     private String text;
     private final String source;
     private final String destination;
+    private Algorithm algorithm;
+    private final UnicodeCharacterSets characterSet;
 
 
-    Input(Operation operation, String text, String key, String inputFileName, String outputFileName) {
+    Message(Operation operation, String text, String key, String inputFileName, String outputFileName, Algorithm algorithm, UnicodeCharacterSets characterSet) {
         this.operation = operation;
         this.key = key;
         this.text = text;
         this.source = getSource(inputFileName);
         this.destination = getDestination(outputFileName);
+        this.algorithm = algorithm;
+        this.characterSet = characterSet;
     }
 
     public Operation getOperation() {
@@ -38,6 +42,14 @@ public class Input {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public UnicodeCharacterSets getCharacterSet() {
+        return characterSet;
+    }
+
+    public String process() {
+        return this.algorithm.process(this);
     }
 
     private String getSource(String inputFileName) {
